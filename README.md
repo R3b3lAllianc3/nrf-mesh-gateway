@@ -80,7 +80,7 @@ Currently UART Shell support includes:
 
  10. Open terminal windows to all COM ports exported by the DK; one should display the interactive shell: 
   
-	![Mesh shell boot up screen.](/images/bootup-screen.JPG)
+![Mesh shell boot up screen.](images/bootup-screen.JPG)
 	 
 ## Process
 
