@@ -80,7 +80,7 @@ Currently UART Shell support includes:
 
  10. Open terminal windows to all COM ports exported by the DK; one should display the interactive shell: 
   
-	<img width=“964” alt=“Mesh Gateway bootup screen.” src="https://github.com/R3b3lAllianc3/nrf-mesh-gateway/blob/master/images/bootup-screen.JPG”>
+	<img width=“964” alt=“Mesh Gateway bootup screen.” src="images/bootup-screen.JPG”>
 	 
 ## Process
 
