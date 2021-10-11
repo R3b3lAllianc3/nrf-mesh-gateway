@@ -81,7 +81,17 @@ Currently UART Shell support includes:
  10. Open terminal windows to all COM ports exported by the DK; one should display the interactive shell: 
   
 ![Mesh shell boot up screen.](images/bootup-screen.JPG)
-	 
+
+11. Install the repo https://github.com/nRFCloud/utils.  In this example, it is cloned one directory above nrf-mesh-gateway/.
+
+12. Create the device certificates using the instructions provided [here](https://github.com/nRFCloud/utils/tree/master/python/modem-firmware-1.3+#create-ca-cert).  For reference, the command line used was: 
+` python ./create_ca_cert.py -c US -st CA -l 90016 -o "Nordic Semiconductor" -ou "S" -cn nordicsemi.com -e my_email@somesite.com -p ./my_ca -f nordic-semi`.  This will create a directory called my_ca/ with the certificates inside.
+
+13. Now we must install the credentials to the device.  Currently, the [AT Client software](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/samples/nrf9160/at_client/README.html) must be flashed to the DK.
+    
+14. Now we must [install the certificates](https://github.com/nRFCloud/lte-gateway#install-device-certificates) to the nRF9160: ` python device_credentials_installer.py -g --ca ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_ca.pem --ca_key ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_prv.pem --csv provision.csv -d -A -F  "APP|MODEM|BOOT"`.  You will have to pick the correct COM port with some trial & error.  Expected output: 
+![Device credentials installer screenshot.](images/device-credentials-installer--screen-output.JPG) 
+
 ## Process
 
 ### Configuration
