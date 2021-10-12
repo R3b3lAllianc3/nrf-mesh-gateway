@@ -110,7 +110,7 @@ igfmrJNQKiv1bl6DJGpIufciy7YxWsjFrA==
 "
  16. Now we must upload the provision.csv file to nRF Cloud.  You will need to find your nRF Cloud account API Key on your account settings page, and use it in place of <API_KEY> below: `curl --location --request POST 'https://api.nrfcloud.com/v1/devices' --header 'Authorization: Bearer <API_KEY>' --header 'Content-Type: text/csv' --data-binary '@provision.csv'`
  
- 17. Note the return value of the above command and use it to verify if the operation succeeded, replacing BulkOps with this value and API_KEY with your nRF Cloud account API key: `curl --location --request GET 'https://api.nrfcloud.com/v1/bulk-ops-requests/<BulkOps>' --header 'Authorization: Bearer <API_KEY>'`
+ 17. Note the return value of the above command and use it to verify if the operation succeeded, replacing <BulkOps> with this value and <API_KEY> with your nRF Cloud account API key: `curl --location --request GET 'https://api.nrfcloud.com/v1/bulk-ops-requests/<BulkOps>' --header 'Authorization: Bearer <API_KEY>'`
  The return string should indicate success.
 
 ## Process
