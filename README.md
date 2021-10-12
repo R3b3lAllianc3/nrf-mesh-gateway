@@ -92,6 +92,26 @@ Currently UART Shell support includes:
 14. Now we must [install the certificates](https://github.com/nRFCloud/lte-gateway#install-device-certificates) to the nRF9160: ` python device_credentials_installer.py -g --ca ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_ca.pem --ca_key ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_prv.pem --csv provision.csv -d -A -F  "APP|MODEM|BOOT"`.  You will have to pick the correct COM port with some trial & error.  Expected output: 
 ![Device credentials installer screenshot.](images/device-credentials-installer--screen-output.JPG) 
 
+15. *Transitionary step: this step will be removed in the future but for now must be implemented*.  Edit the provision.csv, replace the first field (prior to the first comma) with a random unique string, and remove the term 'gateway' in the second field (before the second comma).  For example, the file should look like this: 
+
+> nrd-816854,,,APP|MODEM|BOOT,"-----BEGIN CERTIFICATE-----
+MIIBxTCCAWsCFFmL5AUclvIkqtcwekEN1hLYekIhMAoGCCqGSM49BAMCMIGaMQsw
+CQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExDjAMBgNVBAcMBTkyNjE0MR0wGwYDVQQK
+DBROb3JkaWMgU2VtaWNvbmR1Y3RvcjEKMAgGA1UECwwBUzEXMBUGA1UEAwwObm9y
+ZGljc2VtaS5jb20xKjAoBgkqhkiG9w0BCQEWG21hcmsucXVyZXNoZXlAbm9yZGlj
+c2VtaS5ubzAeFw0yMTEwMDgwNDIwMzNaFw0zMTEwMDYwNDIwMzNaMC8xLTArBgNV
+BAMMJDUwNGU1MzUzLTM4MzEtNGI3oS04MDEzLTE4MDU1ZGUyMjVkOTBZMBMGByqG
+SM49AgEGCCqGSM49AwEHA0IABN8Q/VHXXIbA1KLdNxc3EnHG95BStLtMlxH0S/1B
+MSsTOG0lw9DZXn9c1EA9cuY3FMOuayd8Fk712ow0eVjtxakwCgYIKoZIzj0EAwID
+SAAwRQIgEVmw7SIh3UNgHMPgdQLiYGqJRcDH6ja32kS4t/wtfAkCIQCdHrmo+AMt
+igfmrJNQKiv1bl6DJGpIufciy7YxWsjFrA==
+-----END CERTIFICATE-----
+"
+ 16. Now we must upload the provision.csv file to nRF Cloud.  You will need to find your nRF Cloud account API Key on your account settings page, and use it in place of <API_KEY> below: `curl --location --request POST 'https://api.nrfcloud.com/v1/devices' --header 'Authorization: Bearer <API_KEY>' --header 'Content-Type: text/csv' --data-binary '@provision.csv'`
+ 
+ 17. Note the return value of the above command and use it to verify if the operation succeeded, replacing BulkOps with this value and API_KEY with your nRF Cloud account API key: `curl --location --request GET 'https://api.nrfcloud.com/v1/bulk-ops-requests/<BulkOps>' --header 'Authorization: Bearer <API_KEY>'`
+ The return string should indicate success.
+
 ## Process
 
 ### Configuration

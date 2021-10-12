@@ -3,7 +3,7 @@
 #define HW_VERSION_MINOR 9
 #define FW_VERSION_MAJOR 0
 #define FW_VERSION_MINOR 0
-#define FW_VERSION_PATCH be522d5
+#define FW_VERSION_PATCH e453136
 
 #define REVSTR2(x)    #x
 #define REVSTR(x)     REVSTR2(x)
