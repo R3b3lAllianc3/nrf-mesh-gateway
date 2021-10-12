@@ -90,6 +90,7 @@ Currently UART Shell support includes:
 13. Now we must install the credentials to the device.  Currently, the [AT Client software](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/samples/nrf9160/at_client/README.html) must be flashed to the DK.
     
 14. Now we must [install the certificates](https://github.com/nRFCloud/lte-gateway#install-device-certificates) to the nRF9160: ` python device_credentials_installer.py -g --ca ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_ca.pem --ca_key ./my_ca/nordic-semi0x12ff4a64133ce20d2055f845350eef441e19fd14_prv.pem --csv provision.csv -d -A -F  "APP|MODEM|BOOT"`.  You will have to pick the correct COM port with some trial & error.  Expected output: 
+    
 ![Device credentials installer screenshot.](images/device-credentials-installer--screen-output.JPG) 
 
 15. *Transitionary step: this step will be removed in the future but for now must be implemented*.  Edit the provision.csv, replace the first field (prior to the first comma) with a random unique string, and remove the term 'gateway' in the second field (before the second comma).  For example, the file should look like this: 
