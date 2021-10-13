@@ -55,7 +55,7 @@ Currently UART Shell support includes:
   
 ## Instructions for nRF9160-DK
 
- 1. Install the latest version of [Nordic Connect SDK (NCS)](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk) [these instructions have been tested with NCS v1.7.0].
+ 1. Install the latest version of [Nordic Connect SDK (NCS)](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk) [these instructions have been tested with NCS v1.7.0] by installing the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download) application on your PC,  and launching the Toolchain Manager applet.  Then launch the Git Bash shell by clicking on the triangle and clicking on *Open bash*.
  
  2. Go to the root directory of the SDK's installation directory (e.g. c:/ncs/v1.7.0/) and clone this repo in that directory.  You should see a nrf-mesh-gateway/ directory now.
  
