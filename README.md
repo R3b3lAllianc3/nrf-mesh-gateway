@@ -93,7 +93,7 @@ Currently UART Shell support includes:
     
 ![Device credentials installer screenshot.](images/device-credentials-installer--screen-output.JPG) 
 
-15. *Transitionary step: this step will be removed in the future but for now must be implemented*.  Edit the provision.csv, replace the first field (prior to the first comma) with a random unique string, and remove the term 'gateway' in the second field (before the second comma).  For example, the file should look like this: 
+15. **Transitionary steps: some of the following steps will be removed in the future but, for now, must be implemented**.  Edit the provision.csv, replace the first field (prior to the first comma) with a random unique string, and remove the term 'gateway' in the second field (before the second comma).  For example, the file should look like this: 
 
 > nrd-816854,,,APP|MODEM|BOOT,"-----BEGIN CERTIFICATE-----
 MIIBxTCCAWsCFFmL5AUclvIkqtcwekEN1hLYekIhMAoGCCqGSM49BAMCMIGaMQsw
@@ -112,6 +112,13 @@ igfmrJNQKiv1bl6DJGpIufciy7YxWsjFrA==
  
  17. Note the return value of the above command and use it to verify if the operation succeeded, replacing <BULK_OPS> with this value and API_KEY with your nRF Cloud account API key: `curl --location --request GET 'https://api.nrfcloud.com/v1/bulk-ops-requests/<BULK_OPS>' --header 'Authorization: Bearer <API_KEY>'`
  The return string should indicate success.
+
+18. With the at_client firmware still running on the DK, launch the LTE Link Monitor applet for the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download) application.
+19. Connect to the board and type `AT+CFUN=4` and click on *Send* to bring the modem into offline mode.
+20. Click on *Certificate manager* and type 42 in the *Security tag* box.
+21. Click on *PSK identity* and type in the random string that was saved in the first field of the provision.csv file. 
+22. Click on *Update certificates* to effect the changes:
+![Certificate Manager screen.](images/certificate-manager-screenshot.jpg)
 
 ## Process
 
