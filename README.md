@@ -118,6 +118,7 @@ igfmrJNQKiv1bl6DJGpIufciy7YxWsjFrA==
 20. Click on *Certificate manager* and type 42 in the *Security tag* box.
 21. Click on *PSK identity* and type in the random string that was saved in the first field of the provision.csv file. 
 22. Click on *Update certificates* to effect the changes:
+
 ![Certificate Manager screen.](images/certificate-manager-screenshot.jpg)
 
 ## Process
